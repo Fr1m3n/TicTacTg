@@ -1,0 +1,6 @@
+<!--<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">-->
+<!--    <class name="DataBase.Models.User.UserRecord" table="user">-->
+<!--        <id column="user_id" name="id" type="java.lang.Long"/>-->
+
+<!--    </class>-->
+<!--</hibernate-mapping>-->

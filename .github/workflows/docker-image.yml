@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to Digital Ocean registry
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DIGITAL_OCEAN_API_KEY }}
+        password: ${{ secrets.DIGITAL_OCEAN_API_KEY }}
+        registry: registry.digitalocean.com
+    - name: Push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ secrets.DIGITAL_OCEAN_USERNAME }}/tictactoe:latest
